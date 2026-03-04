@@ -13,6 +13,8 @@ except ImportError:
 __all__ = ["__version__"]
 
 from .transmission_line import *
+from .amplifier import *
+from .mixer import *
 
 try:
     from .network import *
