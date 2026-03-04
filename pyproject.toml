@@ -46,8 +46,8 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pathsim/pathsim-rf"
-# Documentation = "https://pathsim-rf.readthedocs.io"
+Homepage = "https://pathsim.org"
+Documentation = "https://docs.pathsim.org/rf"
 Repository = "https://github.com/pathsim/pathsim-rf"
 Issues = "https://github.com/pathsim/pathsim-rf/issues"
 
