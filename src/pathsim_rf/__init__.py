@@ -12,4 +12,9 @@ except ImportError:
 
 __all__ = ["__version__"]
 
-from .network import *
+from .transmission_line import *
+
+try:
+    from .network import *
+except ImportError:
+    pass
