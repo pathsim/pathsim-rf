@@ -24,7 +24,10 @@ class RFMixer(Function):
     Parameters
     ----------
     conversion_gain : float
-        Linear conversion gain (dimensionless). Default 1.0.
+        Conversion gain [dB]. Default 0.0.  Negative values represent
+        conversion loss (typical for passive mixers).
+    Z0 : float
+        Reference impedance [Ohm]. Default 50.0.
     """
 
     input_port_labels = {
@@ -36,16 +39,18 @@ class RFMixer(Function):
         "if_out": 0,
     }
 
-    def __init__(self, conversion_gain=1.0):
+    def __init__(self, conversion_gain=0.0, Z0=50.0):
 
-        if conversion_gain <= 0:
-            raise ValueError(
-                f"'conversion_gain' must be positive but is {conversion_gain}"
-            )
+        if Z0 <= 0:
+            raise ValueError(f"'Z0' must be positive but is {Z0}")
 
         self.conversion_gain = conversion_gain
+        self.Z0 = Z0
+
+        # linear voltage gain (can be < 1 for conversion loss)
+        self._gain_linear = 10.0 ** (conversion_gain / 20.0)
 
         super().__init__(func=self._eval)
 
     def _eval(self, rf, lo):
-        return self.conversion_gain * rf * lo
+        return self._gain_linear * rf * lo
