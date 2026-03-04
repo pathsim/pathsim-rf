@@ -8,7 +8,6 @@
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/pathsim-rf/"><img src="https://img.shields.io/pypi/v/pathsim-rf" alt="PyPI"></a>
   <img src="https://img.shields.io/github/license/pathsim/pathsim-rf" alt="License">
 </p>
 
@@ -29,7 +28,7 @@ PathSim-RF extends the [PathSim](https://github.com/pathsim/pathsim) simulation 
 ## Install
 
 ```bash
-pip install pathsim-rf
+pip install git+https://github.com/pathsim/pathsim-rf.git
 ```
 
 ## License
