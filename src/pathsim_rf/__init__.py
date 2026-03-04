@@ -11,3 +11,5 @@ except ImportError:
     __version__ = "unknown"
 
 __all__ = ["__version__"]
+
+from .network import *

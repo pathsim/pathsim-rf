@@ -29,6 +29,7 @@ dependencies = [
     "pathsim>0.13",
     "numpy>=1.15",
     "scipy>=1.2",
+    "scikit-rf>=0.30",
 ]
 
 [project.optional-dependencies]
