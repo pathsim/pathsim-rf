@@ -1,5 +1,5 @@
 """
-PathSim-RF: RF Engineering Blocks for PathSim
+PathSim-RF: RF Engineering toolbox for PathSim
 
 A toolbox providing specialized blocks for RF and microwave engineering
 simulations in the PathSim framework.

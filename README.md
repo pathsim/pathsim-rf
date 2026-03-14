@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <strong>RF engineering blocks for PathSim</strong>
+  <strong>RF engineering toolbox for PathSim</strong>
 </p>
 
 <p align="center">
