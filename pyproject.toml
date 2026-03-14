@@ -32,7 +32,11 @@ dependencies = [
     "scikit-rf>=0.30",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
+dev = [
+  { include-group = "docs" },
+  { include-group = "test" },
+]
 test = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
