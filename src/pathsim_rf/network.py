@@ -14,6 +14,7 @@ from inspect import signature
 from pathlib import Path
 
 import skrf as rf
+from skrf.vectorFitting import VectorFitting
 
 from pathsim.blocks.lti import StateSpace
 
@@ -35,8 +36,8 @@ class RFNetwork(StateSpace):
         scikit-rf RF Network object, or file to load information from.
         Supported formats are touchstone file V1 (.s?p) or V2 (.ts).
     auto_fit : bool
-        If True (default), use ``skrf.VectorFitting.auto_fit`` for automatic
-        pole selection. If False, use ``skrf.VectorFitting.vector_fit``.
+        If True (default), use ``skrf.vectorFitting.VectorFitting.auto_fit`` for automatic
+        pole selection. If False, use ``skrf.vectorFitting.VectorFitting.vector_fit``.
     **kwargs
         Additional keyword arguments forwarded to the vector fitting function.
 
@@ -52,14 +53,14 @@ class RFNetwork(StateSpace):
 
         # select the vector fitting function from scikit-rf
         vf_fun_name = "auto_fit" if auto_fit else "vector_fit"
-        vf_fun = getattr(rf.VectorFitting, vf_fun_name)
+        vf_fun = getattr(VectorFitting, vf_fun_name)
 
         # filter kwargs for the selected vf function
         vf_fun_keys = signature(vf_fun).parameters
         vf_kwargs = {k: v for k, v in kwargs.items() if k in vf_fun_keys}
 
         # apply vector fitting
-        vf = rf.VectorFitting(ntwk)
+        vf = VectorFitting(ntwk)
         getattr(vf, vf_fun_name)(**vf_kwargs)
         A, B, C, D, _ = vf._get_ABCDE()
 
@@ -82,6 +83,6 @@ class RFNetwork(StateSpace):
         s : :py:class:`~numpy.ndarray`
             Complex-valued S-matrices (fxNxN) calculated at frequencies ``freqs``.
         """
-        return rf.VectorFitting._get_s_from_ABCDE(
+        return VectorFitting._get_s_from_ABCDE(
             freqs, self.A, self.B, self.C, self.D, 0
         )
