@@ -1,0 +1,16 @@
+*validation netlist for pathsim
+.param FREQ = 9k
+.param DUTY = 0.5
+.param V_LOW = 0
+.param V_HIGH = 1
+.param T_PER = {1/FREQ}
+.param T_ON = {T_PER * DUTY}
+.param T_RISE = 10n
+.param T_FALL = 10n
+
+V1 in 0 PULSE({V_LOW} {V_HIGH} 0 {T_RISE} {T_FALL} {T_ON} {T_PER})
+Bload n1 0 I=V(n1)/50
+Lfilter in n1 0.5e-3
+Cfilter n1 0 50e-6
+.tran 0.00001 0.2 0 0.00001
+.end

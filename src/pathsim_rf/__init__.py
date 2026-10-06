@@ -15,6 +15,7 @@ __all__ = ["__version__"]
 from .transmission_line import *
 from .amplifier import *
 from .mixer import *
+from .netlist_to_statespace import NetlistStateSpace
 
 try:
     from .network import *

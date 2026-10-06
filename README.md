@@ -27,6 +27,7 @@ PathSim-RF extends the [PathSim](https://github.com/pathsim/pathsim) simulation 
 | Block | Description | Key Parameters |
 |-------|-------------|----------------|
 | `RFNetwork` | N-port network from S-parameter data (Touchstone) via vector fitting | `ntwk`, `auto_fit` |
+| `NetlistStateSpace` | Conversion of spice netlist into pathsim StateSpace | `netlist`, `output_voltages`, `output_currents` |
 | `TransmissionLine` | Lossy delay-based transmission line (scattering domain) | `length`, `er`, `attenuation`, `Z0` |
 | `RFAmplifier` | Amplifier with optional IP3 nonlinearity | `gain` [dB], `IIP3` [dBm], `P1dB` [dBm], `Z0` |
 | `RFMixer` | Ideal frequency converter (time-domain multiplication) | `conversion_gain` [dB], `Z0` |
