@@ -17,7 +17,11 @@ from .amplifier import *
 from .mixer import *
 from .netlist_to_statespace import NetlistStateSpace
 
-try:
+try: # test if scikit-rf is present in env (pip install scikit-rf)
     from .network import *
+except ImportError:
+    pass
+try: # test if Elecsolver is present in env (pip install ElecSolver>=2.2.1)
+    from .circuit import *
 except ImportError:
     pass

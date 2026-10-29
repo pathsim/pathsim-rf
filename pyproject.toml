@@ -30,6 +30,7 @@ dependencies = [
     "numpy>=1.15",
     "scipy>=1.2",
     "scikit-rf>=0.30",
+    "ElecSolver>=2.2.1",
     # If a dependency ships native code that can't be installed in Pyodide,
     # tag it with `; sys_platform != 'emscripten'` so a normal pip install
     # still pulls it eagerly but micropip in the browser skips it. Pair
